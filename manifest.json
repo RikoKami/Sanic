@@ -1,0 +1,17 @@
+{
+  "name": "Sanic",
+  "version": "1.0",
+  "description": "Extension to change the speed of youtube video!",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "icons": {
+    "128":"icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "speed.html"
+  },
+  "manifest_version": 2
+}
