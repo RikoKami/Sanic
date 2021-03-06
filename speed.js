@@ -1,15 +1,12 @@
-let speedThree  = document.getElementById('speedThree');
-
 chrome.storage.sync.get('playbackRate', function(data) {
-  speedThree.setAttribute('value', data.playbackRate);
+  document.getElementById("input").setAttribute('value', data.playbackRate);
 });
 
-
-speedThree.onclick = function(element, index) {
+document.getElementById("input").onclick = function(element) {
   let playbackRate = element.target.value;
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.executeScript(
         tabs[0].id,
-        {code: 'document.querySelector("video").playbackRate = "' + playbackRate + '";'});
+        {code: `document.querySelector("video").playbackRate=${playbackRate};`});
   });
 };
